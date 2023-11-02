@@ -1,0 +1,32 @@
+@using HealthView.Web.Services
+@inject WebService WebService
+
+<h3>VisitTable</h3>
+
+<div class="table">
+    <div class="row header">
+        <p>
+            Patient Id
+        </p>
+        <p>
+            Doctor Id
+        </p>
+        <p>
+            Visit Date
+        </p>
+    </div>
+    @if (Visits?.PageItems != null)
+    {
+        foreach (var item in Visits.PageItems)
+        {
+            <div class="row">
+                <p>@item.PatientId</p>
+                <p>
+                    <NavLink href="@($"Doctor/{item.DoctorId}")">@item.DoctorId</NavLink>
+                </p>
+                <p>@item.VisitDate</p>
+            </div>
+        }
+    }
+</div>
+

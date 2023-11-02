@@ -1,0 +1,34 @@
+@page "/Doctor/{doctorId}"
+@using HealthView.Web.Services
+@inject WebService WebService
+
+@if (DoctorEntity != null)
+{
+    <img src="@DoctorEntity.HeadshotImg" alt="Doctor's headshot img" /> 
+}
+
+<div class="table">
+    <div class="row header">
+        <p>
+            Doctor Id
+        </p>
+        <p>
+            Name
+        </p>
+        <p>
+            Certifications
+        </p>
+        <p>
+            Biography
+        </p>
+    </div>
+    @if (DoctorEntity != null)
+    {
+        <div class="row">
+            <p>@DoctorEntity.Id</p>
+            <p>@DoctorEntity.FirstName @DoctorEntity.LastName</p>
+            <p>@DoctorEntity.Certifications</p>
+            <p>@DoctorEntity.Biography</p>
+        </div>
+    }
+</div>
